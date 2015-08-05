@@ -1,0 +1,8 @@
+{
+	types:{field1:type1,field2:type2,field3:type3,field4:type4,field5:type5,field6:type6,field7:type7},
+	combine:{group_name:[field1,field2,field3,field4]},
+	rename:{from:to},
+	format:{number:format,date:format,string:format,boolean:format},
+	operation:{number:op1,date:op1,string:op1},
+	order:[field1,field2,field3,field4]
+}

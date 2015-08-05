@@ -1,0 +1,3 @@
+Customer Id,Subscription Id,Invoice Number,Invoice Date,Start Date,Amount,Status,Paid On,Next Retry,Refunded Amount,Recurring,First Invoice,Customer First Name,Customer Last Name,Customer Email,Customer Company,Tax Total
+Cust_001,Sub_001,Inv_001,2015-05-25T10:55:22.820Z,2015-05-25T10:55:22.820Z,1025,Paid,2015-05-25T10:55:22.820Z,,56,TRUE,FALSE,John,Doe,john@test.com,My BigCamp,125
+Cust_001,Sub_001,Inv_001,2015-05-25T10:55:22.820Z,2015-05-25T10:55:22.820Z,1025,Paid,2015-05-25T10:55:22.820Z,,56,TRUE,FALSE,John,Doe,john@test.com,My BigCamp,125

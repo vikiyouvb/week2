@@ -1,0 +1,7 @@
+{
+	"types":{"Customer Id":"String","Subscription Id":"String","Invoice Number":"String","Invoice Date":"Timestamp","Start Date":"Timestamp","Amount":"Double","Paid On":"Timestamp","Next Retry":"Null","Refunded Amount":"Double","Recurring":"Boolean","First Invoice":"Boolean","Customer First Name":"String","Customer Last Name":"String","Customer Email":"String","Customer Company":"String","Tax Total":"Double"},
+	"combine":{"Customer details":["Customer First Name","Customer Last Name","Customer Company","Customer Email"]}
+	"rename":{"Invoice Number":"Invoice Id","Customer First Name":"First name","Customer Last Name":"Last name","Customer Company":"Company","Customer Email":"Email"}
+	"operation":{"Amount":"div 100","Refunded Amount":"div 10","Tax Total":"div 100"},
+	"format":{"Invoice Date":"M/dd/yyyy HH:mm","Start Date":"M/dd/yyyy HH:mm","Paid On":"M/dd/yyyy HH:mm"}
+}

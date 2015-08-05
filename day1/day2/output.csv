@@ -1,0 +1,4 @@
+
+Customer Id,Subscription Id,Invoice Date,Start Date,Amount,Status,Paid On,Next Retry,Refunded Amount,Recurring,First Invoice,Tax Total,Customer details,Invoice Id
+Cust_001,Sub_001,5/25/2015 10:55,5/25/2015 10:55,10.25,Paid,5/25/2015 10:55,,5.6,TRUE,FALSE,1.25,"{""Email"":""john@test.com"",""First name"":""John"",""Last name"":""Doe"",""Company"":""My BigCamp""}",Inv_001
+Cust_001,Sub_001,5/25/2015 10:55,5/25/2015 10:55,10.25,Paid,5/25/2015 10:55,,5.6,TRUE,FALSE,1.25,"{""Email"":""john@test.com"",""First name"":""John"",""Last name"":""Doe"",""Company"":""My BigCamp""}",Inv_001

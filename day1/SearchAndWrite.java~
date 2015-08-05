@@ -1,0 +1,93 @@
+import java.util.*;
+import java.io.*;
+
+class LinePos
+{
+	int lineno;
+	LinkedList<Integer> poslist;
+	public LinePos(int lineno)
+	{
+		lineno=this.lineno;
+		poslist=new LinkedList<Integer>();
+	}
+	public void addPos(int pos)
+	{
+		poslist.add(pos);
+	}
+	public String toString()
+	{
+		StringBuilder br=new StringBuilder();
+		br.append("<"+lineno+">:");
+		for(Integer pos:poslist)
+		{
+			br.append("<"+pos+">,");
+		}
+		br.deleteCharAt(br.length()-1);
+		return br.toString();
+	}
+}	
+
+public class SearchAndWrite
+{
+	private LinkedList<LinePos> patPos;
+	private PatternSearch ps;
+	private String pattern;
+	public SearchAndWrite(String file,String pattern) throws IOException
+	{
+		this.patPos=new LinkedList<LinePos>();
+		this.ps=new PatternSearch(pattern);
+		this.pattern=pattern;
+		File f=new File(file);
+		readFile(f);
+		writeFile();
+	}
+	public void readFile(File f) throws IOException
+	{
+		int linecount=1;
+		try(DataOutputStream in=new DataOutputStream(new BufferedInputStream(new FileInputStream(f))))
+		{
+			try
+			{
+				while((String line=in.readLine())!=null)
+				{
+					findPos(line,linecount++);
+				}
+			}	
+			catch(EOFException ex)
+			{
+
+			}
+		}
+	}
+	public void writeFile() throws IOException
+	{
+		try(DataOutputStream out=new DataOutputStream(new BufferedOutputStream(new FileOutputStream(pattern+".locations"))))
+		{
+			for(LinePos lp:patPos)
+			{
+				out.writeChars(lp.toString()+"\n");
+			}
+		}
+	}
+	public void findPos(String line,int lineno)
+	{
+		int pos=this.ps.findPos(line,0);
+		int N=line.length();
+		LinePos lp=new LinePos(lineno);
+		while(pos!=N)
+		{
+			lp.addPos(pos);
+			pos=this.ps.findPos(line,pos+1);
+		}
+		patPos.add(lp);
+	}
+	public static void main(String args[]) throws Exception
+	{
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the filename");
+		String fname=br.readLine();
+		System.out.println("Enter the pattern");
+		String pattern=br.readLine();
+		SearchAndWrite s=new SearchAndWrite(fname,pattern);
+	}
+}
